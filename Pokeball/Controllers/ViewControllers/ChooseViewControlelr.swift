@@ -41,6 +41,8 @@ class ChooseViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        GameController.shared.loadFromPersistenceStore()
+        
         toDetailButton.isEnabled = false
         updateTurn()
         rerandomizePokemon()

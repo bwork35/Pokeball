@@ -25,6 +25,7 @@
 		93EBCFEB2658045600578A29 /* ChooseDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFEA2658045600578A29 /* ChooseDetailTableViewController.swift */; };
 		93EBCFF526581DFF00578A29 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFF426581DFF00578A29 /* DetailTableViewCell.swift */; };
 		93EBCFF826581F9100578A29 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFF726581F9100578A29 /* GameController.swift */; };
+		93EBD0202658DD3D00578A29 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBD01F2658DD3C00578A29 /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		93EBCFEA2658045600578A29 /* ChooseDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDetailTableViewController.swift; sourceTree = "<group>"; };
 		93EBCFF426581DFF00578A29 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		93EBCFF726581F9100578A29 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		93EBD01F2658DD3C00578A29 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				93147E862640A6D80044408A /* PokeViewController.swift */,
 				93EBCF6F26509D3600578A29 /* ChooseViewControlelr.swift */,
 				93EBCFEA2658045600578A29 /* ChooseDetailTableViewController.swift */,
+				93EBD01F2658DD3C00578A29 /* FavoritesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				93147E872640A6D80044408A /* PokeViewController.swift in Sources */,
 				93EBCF7026509D3600578A29 /* ChooseViewControlelr.swift in Sources */,
 				93EBCF732650A6A900578A29 /* PokeCollectionViewCell.swift in Sources */,
+				93EBD0202658DD3D00578A29 /* FavoritesViewController.swift in Sources */,
 				93147E82264095260044408A /* PokeError.swift in Sources */,
 				93EBCFE62656DF8D00578A29 /* UIViewControllerExtension.swift in Sources */,
 				93EBCFE22656B6EC00578A29 /* PokeballController.swift in Sources */,

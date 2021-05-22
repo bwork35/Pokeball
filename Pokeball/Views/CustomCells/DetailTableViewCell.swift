@@ -26,15 +26,21 @@ class DetailTableViewCell: UITableViewCell {
     
     //MARK: - Actions
     @IBAction func ellaFavoriteButtonTapped(_ sender: Any) {
-        print("ella fav")
+        guard let pokeball = pokeball, let pokeID = pokeball.pokemon?.id else {return}
+        GameController.shared.toggleFavorite(arrayIndex: 1, id: pokeID)
+        updateViews()
     }
     
     @IBAction func nathanFavoriteButtonTapped(_ sender: Any) {
-        print("nathan fav")
+        guard let pokeball = pokeball, let pokeID = pokeball.pokemon?.id else {return}
+        GameController.shared.toggleFavorite(arrayIndex: 2, id: pokeID)
+        updateViews()
     }
     
     @IBAction func mrbFavoriteButtonTapped(_ sender: Any) {
-        print("m r b fav")
+        guard let pokeball = pokeball, let pokeID = pokeball.pokemon?.id else {return}
+        GameController.shared.toggleFavorite(arrayIndex: 3, id: pokeID)
+        updateViews()
     }
     
     //MARK: - Helper Methods
@@ -44,12 +50,11 @@ class DetailTableViewCell: UITableViewCell {
         pokeNameLabel.text = pokeball.pokemon?.name
         pokeIDLabel.text = String(pokeball.id)
         
-        GameController.shared.ellaFavorites.contains(pokeball.id) ? elleFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : elleFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        GameController.shared.favorites[1].contains(pokeball.id) ? elleFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : elleFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         
-        GameController.shared.nathanFavorites.contains(pokeball.id) ? nathanFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : nathanFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        GameController.shared.favorites[2].contains(pokeball.id) ? nathanFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : nathanFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
        
-        GameController.shared.mrbFavorites.contains(pokeball.id) ? mrbFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : mrbFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        GameController.shared.favorites[3].contains(pokeball.id) ? mrbFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : mrbFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
-    
 
 } //End of class
