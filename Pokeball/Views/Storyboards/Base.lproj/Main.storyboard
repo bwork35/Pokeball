@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-1436" y="552"/>
         </scene>
-        <!--Choose View Controlelr-->
+        <!--Choose View Controller-->
         <scene sceneID="xqe-R8-bPp">
             <objects>
-                <viewController id="WQb-pL-x5d" customClass="ChooseViewControlelr" customModule="Pokeball" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WQb-pL-x5d" customClass="ChooseViewController" customModule="Pokeball" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Md6-dK-joX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pn-Y8-eYI">
                                                         <rect key="frame" x="0.0" y="0.0" width="84.333333333333329" height="84.333333333333329"/>
                                                         <connections>
-                                                            <action selector="ellaButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="9Jb-NY-AsS"/>
+                                                            <action selector="ellaButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="9UL-e0-Xmo"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -104,7 +104,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkR-sZ-ah1">
                                                         <rect key="frame" x="0.0" y="0.0" width="84" height="84.333333333333329"/>
                                                         <connections>
-                                                            <action selector="nathanButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="R2v-qm-S6u"/>
+                                                            <action selector="nathanButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="VuH-UP-ks0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -143,7 +143,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8v-0R-lnU">
                                                         <rect key="frame" x="0.0" y="0.0" width="84.333333333333329" height="84.333333333333329"/>
                                                         <connections>
-                                                            <action selector="mrbButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="hvr-sm-NsY"/>
+                                                            <action selector="mrbButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="VB2-ix-esG"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -240,7 +240,7 @@
                                 </constraints>
                                 <state key="normal" title="Reveal"/>
                                 <connections>
-                                    <action selector="revealButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="lsd-cM-Og2"/>
+                                    <action selector="revealButtonTapped:" destination="WQb-pL-x5d" eventType="touchUpInside" id="qqw-e3-oUp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -261,47 +261,136 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cxj-Jp-Koq">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="line.horizontal.3" catalog="system" id="ieX-By-g3J"/>
-                            <barButtonItem title="Item" image="heart.circle" catalog="system" id="8Oq-yS-SyW">
-                                <connections>
-                                    <segue destination="QZS-M0-dRL" kind="show" id="vf0-HE-NSJ"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="ieX-By-g3J"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart.circle" catalog="system" id="8Oq-yS-SyW">
+                            <connections>
+                                <segue destination="QZS-M0-dRL" kind="show" identifier="toDetailVC" id="vf0-HE-NSJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="ulY-m3-nrZ" id="zbJ-WN-cwX"/>
-                        <outlet property="cvContainingView" destination="KUd-6P-NKK" id="fXV-Jm-aQG"/>
-                        <outlet property="ellaCountLabel" destination="bfa-69-Qrc" id="QWw-XT-WYo"/>
-                        <outlet property="ellaView" destination="vVV-jU-KH2" id="fhn-C2-rvc"/>
-                        <outlet property="mrbCountLabel" destination="4Cx-Bh-HeQ" id="n8c-yD-0f0"/>
-                        <outlet property="mrbView" destination="0K8-Nd-R7i" id="fiZ-j1-gN1"/>
-                        <outlet property="nathanCountLabel" destination="NJf-oI-wz6" id="hXb-9O-84P"/>
-                        <outlet property="nathanView" destination="wAg-JE-9Pd" id="ksg-r3-Wbr"/>
-                        <outlet property="revealButton" destination="UdM-a4-8LG" id="RZa-2D-uVx"/>
+                        <outlet property="collectionView" destination="ulY-m3-nrZ" id="LeA-BO-Afi"/>
+                        <outlet property="cvContainingView" destination="KUd-6P-NKK" id="EaS-2C-Xb7"/>
+                        <outlet property="ellaCountLabel" destination="bfa-69-Qrc" id="ERs-ef-7ao"/>
+                        <outlet property="ellaView" destination="vVV-jU-KH2" id="VZg-Tf-YrI"/>
+                        <outlet property="mrbCountLabel" destination="4Cx-Bh-HeQ" id="d02-OR-PVE"/>
+                        <outlet property="mrbView" destination="0K8-Nd-R7i" id="xV0-Em-97D"/>
+                        <outlet property="nathanCountLabel" destination="NJf-oI-wz6" id="FfX-M1-DCV"/>
+                        <outlet property="nathanView" destination="wAg-JE-9Pd" id="PiF-el-SA3"/>
+                        <outlet property="revealButton" destination="UdM-a4-8LG" id="ewL-PY-BFg"/>
+                        <outlet property="toDetailButton" destination="8Oq-yS-SyW" id="0NO-V7-V2z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zas-eG-qnk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="710.74766355140184" y="913.60691144708426"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Choose Detail Table View Controller-->
         <scene sceneID="6Ma-Sv-egK">
             <objects>
-                <tableViewController id="QZS-M0-dRL" sceneMemberID="viewController">
+                <tableViewController id="QZS-M0-dRL" customClass="ChooseDetailTableViewController" customModule="Pokeball" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2mS-7O-uFb">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokeInfoCell" rowHeight="172" id="cjJ-7g-tV7">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokeInfoCell" rowHeight="172" id="cjJ-7g-tV7" customClass="DetailTableViewCell" customModule="Pokeball" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="428" height="172"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cjJ-7g-tV7" id="EFj-jf-egj">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="172"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cvx-Eq-Kft">
+                                            <rect key="frame" x="10" y="21.666666666666671" width="129" height="129"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Cvx-Eq-Kft" secondAttribute="height" multiplier="1:1" id="ACo-9J-00L"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tB7-RI-oUp">
+                                            <rect key="frame" x="139" y="55.666666666666671" width="224.66666666666663" height="60.666666666666671"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(name)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIL-Rj-zLi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="224.66666666666666" height="20.333333333333332"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(id)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FO-iP-Efu">
+                                                    <rect key="frame" x="0.0" y="40.333333333333336" width="224.66666666666666" height="20.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yyD-yZ-KDJ">
+                                            <rect key="frame" x="378.66666666666669" y="17.333333333333329" width="39.333333333333314" height="137.33333333333337"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptr-df-GiT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="39"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ptr-df-GiT" secondAttribute="height" multiplier="1:1" id="jUu-Cu-Goe"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.47706693410000001" green="0.82405477760000001" blue="0.77646905180000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="ellaFavoriteButtonTapped:" destination="cjJ-7g-tV7" eventType="touchUpInside" id="9c4-5e-Pjf"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrR-9Z-gwh">
+                                                    <rect key="frame" x="0.0" y="49" width="39.333333333333336" height="39.333333333333343"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="KrR-9Z-gwh" secondAttribute="height" multiplier="1:1" id="QBp-s9-xZP"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.47997760769999998" green="0.7202536464" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="nathanFavoriteButtonTapped:" destination="cjJ-7g-tV7" eventType="touchUpInside" id="4wc-dY-4YN"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJi-9o-6Fu">
+                                                    <rect key="frame" x="0.0" y="98.333333333333343" width="39.333333333333336" height="39"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="aJi-9o-6Fu" secondAttribute="height" multiplier="1:1" id="n81-0P-v4D"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.99030357599999996" green="1" blue="0.55677103999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="mrbFavoriteButtonTapped:" destination="cjJ-7g-tV7" eventType="touchUpInside" id="IkF-HF-Jl0"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.99791318179999999" green="0.52648943660000003" blue="0.48233306409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="yyD-yZ-KDJ" firstAttribute="centerY" secondItem="EFj-jf-egj" secondAttribute="centerY" id="82m-Zc-6Gx"/>
+                                        <constraint firstItem="Cvx-Eq-Kft" firstAttribute="leading" secondItem="EFj-jf-egj" secondAttribute="leading" constant="10" id="8Ns-ia-LMr"/>
+                                        <constraint firstItem="tB7-RI-oUp" firstAttribute="leading" secondItem="Cvx-Eq-Kft" secondAttribute="trailing" id="A6d-f7-brE"/>
+                                        <constraint firstItem="tB7-RI-oUp" firstAttribute="centerY" secondItem="EFj-jf-egj" secondAttribute="centerY" id="Bxz-Mg-qhs"/>
+                                        <constraint firstItem="yyD-yZ-KDJ" firstAttribute="leading" secondItem="tB7-RI-oUp" secondAttribute="trailing" constant="15" id="HPx-8S-wbq"/>
+                                        <constraint firstItem="yyD-yZ-KDJ" firstAttribute="height" secondItem="EFj-jf-egj" secondAttribute="height" multiplier="0.8" id="Q9O-JQ-7vV"/>
+                                        <constraint firstItem="yyD-yZ-KDJ" firstAttribute="trailing" secondItem="EFj-jf-egj" secondAttribute="trailingMargin" constant="10" id="ZbB-es-0C2"/>
+                                        <constraint firstItem="Cvx-Eq-Kft" firstAttribute="height" secondItem="EFj-jf-egj" secondAttribute="height" multiplier="0.75" id="dTd-wg-DWC"/>
+                                        <constraint firstItem="Cvx-Eq-Kft" firstAttribute="centerY" secondItem="EFj-jf-egj" secondAttribute="centerY" id="zRo-eC-BBi"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="elleFavoriteButton" destination="ptr-df-GiT" id="eZt-8m-5eo"/>
+                                    <outlet property="mrbFavoriteButton" destination="aJi-9o-6Fu" id="Ssc-R6-kR9"/>
+                                    <outlet property="nathanFavoriteButton" destination="KrR-9Z-gwh" id="SFw-fY-Leg"/>
+                                    <outlet property="pokeIDLabel" destination="3FO-iP-Efu" id="poo-Sn-1yr"/>
+                                    <outlet property="pokeImageView" destination="Cvx-Eq-Kft" id="pyC-R7-4sI"/>
+                                    <outlet property="pokeNameLabel" destination="QIL-Rj-zLi" id="zvC-D7-MOI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -313,7 +402,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPE-or-Vcb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1620.5607476635514" y="913.60691144708426"/>
+            <point key="canvasLocation" x="1602" y="914"/>
         </scene>
         <!--Poke View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -437,6 +526,7 @@
     <resources>
         <image name="circle.grid.3x3" catalog="system" width="128" height="110"/>
         <image name="circle.tophalf.fill" catalog="system" width="128" height="121"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <systemColor name="systemBackgroundColor">

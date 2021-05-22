@@ -22,6 +22,9 @@
 		93EBCFDF2656B5E500578A29 /* Pokeball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFDE2656B5E500578A29 /* Pokeball.swift */; };
 		93EBCFE22656B6EC00578A29 /* PokeballController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFE12656B6EC00578A29 /* PokeballController.swift */; };
 		93EBCFE62656DF8D00578A29 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFE52656DF8D00578A29 /* UIViewControllerExtension.swift */; };
+		93EBCFEB2658045600578A29 /* ChooseDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFEA2658045600578A29 /* ChooseDetailTableViewController.swift */; };
+		93EBCFF526581DFF00578A29 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFF426581DFF00578A29 /* DetailTableViewCell.swift */; };
+		93EBCFF826581F9100578A29 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EBCFF726581F9100578A29 /* GameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		93EBCFDE2656B5E500578A29 /* Pokeball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokeball.swift; sourceTree = "<group>"; };
 		93EBCFE12656B6EC00578A29 /* PokeballController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeballController.swift; sourceTree = "<group>"; };
 		93EBCFE52656DF8D00578A29 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		93EBCFEA2658045600578A29 /* ChooseDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDetailTableViewController.swift; sourceTree = "<group>"; };
+		93EBCFF426581DFF00578A29 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		93EBCFF726581F9100578A29 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			children = (
 				93147E77264091AF0044408A /* PokemonController.swift */,
 				93EBCFE12656B6EC00578A29 /* PokeballController.swift */,
+				93EBCFF726581F9100578A29 /* GameController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 			children = (
 				93147E862640A6D80044408A /* PokeViewController.swift */,
 				93EBCF6F26509D3600578A29 /* ChooseViewControlelr.swift */,
+				93EBCFEA2658045600578A29 /* ChooseDetailTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				93EBCF722650A6A800578A29 /* PokeCollectionViewCell.swift */,
+				93EBCFF426581DFF00578A29 /* DetailTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -245,9 +254,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93147E5826408C630044408A /* AppDelegate.swift in Sources */,
+				93EBCFF826581F9100578A29 /* GameController.swift in Sources */,
 				93147E7C264091C30044408A /* Pokemon.swift in Sources */,
+				93EBCFF526581DFF00578A29 /* DetailTableViewCell.swift in Sources */,
 				93147E78264091AF0044408A /* PokemonController.swift in Sources */,
 				93EBCF772650B2D700578A29 /* CustomView.swift in Sources */,
+				93EBCFEB2658045600578A29 /* ChooseDetailTableViewController.swift in Sources */,
 				93147E872640A6D80044408A /* PokeViewController.swift in Sources */,
 				93EBCF7026509D3600578A29 /* ChooseViewControlelr.swift in Sources */,
 				93EBCF732650A6A900578A29 /* PokeCollectionViewCell.swift in Sources */,

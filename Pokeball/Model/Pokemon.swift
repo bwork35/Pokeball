@@ -25,3 +25,9 @@ struct Type: Decodable {
 struct TypeObject: Decodable {
     let name: String
 }
+
+extension Pokemon: Equatable {
+    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

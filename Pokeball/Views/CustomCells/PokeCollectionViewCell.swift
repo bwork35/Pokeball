@@ -51,23 +51,14 @@ class PokeCollectionViewCell: UICollectionViewCell {
             equalWidths75.isActive = true
             layoutIfNeeded()
         } else {
-            fetchPokemonWithID(pokeball.id)
+            pokeballImageView.image = pokeball.pokeImage
+            self.equalWidths75.isActive = false
+            self.equalWidths100.isActive = true
+            self.layoutIfNeeded()
+//            fetchPokemonWithID(pokeball.id)
         }
         updateColorForSelector()
     }
-    
-//    func updateColorForZeros() {
-//        guard let pokeball = pokeball else {return}
-//        if pokeball.selector == "ella" {
-//            pokeballImageView.tintColor = #colorLiteral(red: 0.4746502042, green: 0.824804008, blue: 0.7766732574, alpha: 1)
-//        } else if pokeball.selector == "nathan" {
-//            pokeballImageView.tintColor = #colorLiteral(red: 0.4740880728, green: 0.7233807445, blue: 0.9992566705, alpha: 1)
-//        } else if pokeball.selector == "mrb" {
-//            pokeballImageView.tintColor = #colorLiteral(red: 0.9733943343, green: 0.9809337258, blue: 0.5477988124, alpha: 1)
-//        } else {
-//            pokeballImageView.tintColor = #colorLiteral(red: 1, green: 0.5249734521, blue: 0.4837039113, alpha: 1)
-//        }
-//    }
     
     func updateColorForSelector() {
         guard let pokeball = pokeball else {return}
@@ -82,33 +73,33 @@ class PokeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func fetchPokemonWithID(_ id: Int) {
-        PokemonController.fetchPokemonWith(searchTerm: String(id)) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let pokemon):
-                    self.fetchSpriteFor(pokemon)
-                case .failure(let error):
-                    self.delegate?.presentPokeError(error)
-                }
-            }
-        }
-    }
-    
-    func fetchSpriteFor(_ pokemon: Pokemon) {
-        PokemonController.fetchSprite(for: pokemon) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let sprite):
-                    self.equalWidths75.isActive = false
-                    self.equalWidths100.isActive = true
-                    self.layoutIfNeeded()
-                    self.pokeballImageView.image = sprite
-                case .failure(let error):
-                    self.delegate?.presentPokeError(error)
-                }
-            }
-        }
-    }
+//    func fetchPokemonWithID(_ id: Int) {
+//        PokemonController.fetchPokemonWith(searchTerm: String(id)) { (result) in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(let pokemon):
+//                    self.fetchSpriteFor(pokemon)
+//                case .failure(let error):
+//                    self.delegate?.presentPokeError(error)
+//                }
+//            }
+//        }
+//    }
+//
+//    func fetchSpriteFor(_ pokemon: Pokemon) {
+//        PokemonController.fetchSprite(for: pokemon) { (result) in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(let sprite):
+//                    self.equalWidths75.isActive = false
+//                    self.equalWidths100.isActive = true
+//                    self.layoutIfNeeded()
+//                    self.pokeballImageView.image = sprite
+//                case .failure(let error):
+//                    self.delegate?.presentPokeError(error)
+//                }
+//            }
+//        }
+//    }
     
 } //End of class

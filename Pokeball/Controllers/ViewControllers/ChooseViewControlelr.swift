@@ -19,10 +19,9 @@ class ChooseViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var revealButton: UIButton!
     @IBOutlet weak var cvContainingView: UIView!
+    @IBOutlet weak var toDetailButton: UIBarButtonItem!
     
-    //MARK: - Properties
-//    var pokeballs = PokeballController.shared.starters
-    
+    //MARK: - Properties    
     var isEllasTurn = true
     var isNathansTurn = false
     var isMRBsTurn = false
@@ -33,6 +32,8 @@ class ChooseViewController: UIViewController {
     
     var isRevealed = false
     
+    var pokeballs: [Pokeball] = []
+    
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +41,9 @@ class ChooseViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        toDetailButton.isEnabled = false
         updateTurn()
-        PokeballController.shared.randomizePokemon()
+        rerandomizePokemon()
     }
     
     //MARK: - Actions
@@ -78,9 +80,10 @@ class ChooseViewController: UIViewController {
             isEllasTurn = false
             isNathansTurn = false
             isMRBsTurn = false
+            toDetailButton.isEnabled = true
             updateTurn()
             revealButton.setTitle("Reset", for: .normal)
-            PokeballController.shared.transferColors()
+            transferColors()
             collectionView.reloadData()
         }
     }
@@ -122,9 +125,69 @@ class ChooseViewController: UIViewController {
         isEllasTurn = true
         isNathansTurn = false
         isMRBsTurn = false
+        toDetailButton.isEnabled = false
         updateTurn()
         updateCounts()
-        PokeballController.shared.randomizePokemon()
+        rerandomizePokemon()
+    }
+    
+    func rerandomizePokemon() {
+        func fetchPokemon(from id: Int) {
+            PokemonController.fetchPokemonWith(searchTerm: String(id)) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let pokemon):
+                        fetchSpriteFor(pokemon)
+                    case .failure(let error):
+                        self.presentErrorToUser(localizedError: error)
+                    }
+                }
+            }
+        }
+        func fetchSpriteFor(_ pokemon: Pokemon) {
+            PokemonController.fetchSprite(for: pokemon) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let sprite):
+                        let newPokeball = Pokeball(id: pokemon.id, pokemon: pokemon, pokeImage: sprite)
+                        self.pokeballs.append(newPokeball)
+                        group.leave()
+                    case .failure(let error):
+                        self.presentErrorToUser(localizedError: error)
+                    }
+                }
+            }
+        }
+        pokeballs = []
+        let range = (1...898)
+        let group = DispatchGroup()
+        for _ in 1...9 {
+            group.enter()
+            let randomID = range.randomElement() ?? 1
+            fetchPokemon(from: randomID)
+        }
+        
+        group.notify(queue: .main) {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func transferColors() {
+        for i in 0...PokeballController.shared.zeros.count-1 {
+            pokeballs[i].selector = PokeballController.shared.zeros[i].selector
+            pokeballs[i].wasSelected = PokeballController.shared.zeros[i].wasSelected
+            
+            PokeballController.shared.zeros[i].selector = "nil"
+            PokeballController.shared.zeros[i].wasSelected = false
+        }
+    }
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            guard let destination = segue.destination as? ChooseDetailTableViewController else {return}
+            destination.pokeballs = pokeballs
+        }
     }
 
 } //End of class
@@ -138,7 +201,7 @@ extension ChooseViewController: UICollectionViewDataSource, UICollectionViewDele
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokeCell", for: indexPath) as? PokeCollectionViewCell else {return UICollectionViewCell()}
         
         if isRevealed {
-            cell.pokeball = PokeballController.shared.pokeballs[indexPath.row]
+            cell.pokeball = pokeballs[indexPath.row]
         } else {
             cell.pokeball = PokeballController.shared.zeros[indexPath.row]
         }

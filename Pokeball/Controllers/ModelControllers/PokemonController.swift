@@ -54,7 +54,7 @@ class PokemonController {
         
         let finalURL = pokemonURL.appendingPathComponent(String(randomID))
         
-        print(finalURL)
+//        print(finalURL)
         URLSession.shared.dataTask(with: finalURL) { (data, _, error) in
             if let error = error {
                 print("======== ERROR ========")
